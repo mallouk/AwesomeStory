@@ -1,0 +1,7 @@
+-:0A:What do you do first?:Check window:1A:check door:1B
+-:1A:words:choice1:2A:choice2:2B
+-:1B:stuff:choiceChoice1:2C:choiceChoice2:2D
+-:2A:Oh noes! Stuff happened.:quest1:3A:quest2:3B
+-:2B:oh herro there.:orangejuice1:3C:orangejuice2:3D
+-:2C:blah blah blah:answer1:3E:answer2:3F
+-:2D:how much wood could a wood chuck?:problem1:3G:problem2:3H

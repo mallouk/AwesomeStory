@@ -45,36 +45,4 @@ public class StoryStruct {
 	public String getPointerChoice2(){
 		return pointerChoice2;
 	}
-	
-	
-	/*public class Story{
-		
-		TreeObject storyList = new TreeObject();
-		private String choicePointer;
-		private String story;
-		
-		public void parseLine(String record){
-			String[] parsedData = record.split(":");
-			choicePointer = parsedData[1];
-			story = parsedData[2];
-		}
-		
-	}
-	
-	
-	class Choice{
-		TreeObject choiceList = new TreeObject();
-
-		private String choiceText;
-		private String pointerChoice;
-		private String typeChoice;
-		
-		public void parseLine(String record){
-			String[] parsedData = record.split("-");
-			
-			choiceText = parsedData[1];
-			pointerChoice = parsedData[2];
-			typeChoice = parsedData[3];
-		}
-	}*/
 }

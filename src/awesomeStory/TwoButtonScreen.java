@@ -42,10 +42,8 @@ public class TwoButtonScreen {
 		panel.add(button1);
 		panel.add(button2);
 
-
-
 		try {
-			File f = new File("Z:/Story.txt");
+			File f = new File("Story.txt");
 			BufferedReader bufferedReader= new BufferedReader(new FileReader(f));
 			String record1 = bufferedReader.readLine().toString();
 			while (record1 != null){
