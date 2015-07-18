@@ -14,11 +14,11 @@ public class StoryStruct {
 		storyPointer = parsedData[1];
 		story = parsedData[2];
 		
-		choiceText1 = parsedData[3];
-		pointerChoice1 = parsedData[4];
+		choiceText1 = parsedData[4];
+		pointerChoice1 = parsedData[3];
 		
-		choiceText2 = parsedData[5];
-		pointerChoice2 = parsedData[6];
+		choiceText2 = parsedData[6];
+		pointerChoice2 = parsedData[5];
 		
 	}
 	

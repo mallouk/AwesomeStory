@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 
 public class TwoButtonScreen {
@@ -21,7 +22,7 @@ public class TwoButtonScreen {
 
 	private static JFrame frame;
 	private static JPanel panel;
-	private static JLabel label;
+	private static JTextArea label;
 	private static JButton button1;
 	private static JButton button2;
 	private static int currIndex = 0;
@@ -31,11 +32,12 @@ public class TwoButtonScreen {
 		//Set up GUI framework. 
 		frame = new JFrame();
 		panel = new JPanel();
-		label = new JLabel();
+		label = new JTextArea(10,20);
 		button1 = new JButton();
 		button2 = new JButton();
-		panel.setLayout(new GridLayout(3, 1));
-
+		//panel.setLayout(new GridLayout(3, 1));
+		panel.setLayout(new FlowLayout());
+		
 		//Add our stuff to our frame.
 		frame.add(panel);
 		panel.add(label);
@@ -44,7 +46,7 @@ public class TwoButtonScreen {
 
 		//Read file and get our story structure tree.
 		try {
-			File f = new File("Story.txt");
+			File f = new File("Story1.txt");
 			BufferedReader bufferedReader= new BufferedReader(new FileReader(f));
 			String record1 = bufferedReader.readLine().toString();
 			while (record1 != null){
@@ -52,15 +54,19 @@ public class TwoButtonScreen {
 				storyTree.parseLine(record1);
 				storyStruct.add(storyTree);
 				record1 = bufferedReader.readLine().toString();
+				System.out.println(record1);
 			}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
+		System.out.println(storyStruct.size());
 		//Set initial story point.
 		StoryStruct initStory = (StoryStruct) storyStruct.get(currIndex);
 		label.setText(initStory.getStory());
+		label.setWrapStyleWord(true);
+		label.setLineWrap(true);
 		button1.setText(initStory.getChoiceText1());
 		button2.setText(initStory.getChoiceText2());
 
@@ -69,8 +75,10 @@ public class TwoButtonScreen {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("clicked it!");
 				StoryStruct nextStory = (StoryStruct) storyStruct.get(currIndex);
+				
 				for (int i = currIndex; i < storyStruct.size(); i++){
 					StoryStruct q = (StoryStruct)storyStruct.get(i);
+					System.out.println(nextStory.getPointerChoice1()+ "--" + q.getPointerChoice1());
 					if (nextStory.getPointerChoice1().equals(q.getStoryPointer())){
 						currIndex = i;
 						label.setText(q.getStory());
@@ -86,7 +94,7 @@ public class TwoButtonScreen {
 		button2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				StoryStruct nextStory = (StoryStruct) storyStruct.get(currIndex);
-				for (int i = currIndex; i < storyStruct.size(); i++){
+				for (int i = 0; i < storyStruct.size(); i++){
 					StoryStruct q = (StoryStruct)storyStruct.get(i);
 					if (nextStory.getPointerChoice2().equals(q.getStoryPointer())){
 						currIndex = i;
@@ -99,7 +107,7 @@ public class TwoButtonScreen {
 			}
 		});
 		
-		frame.setSize(200,200);
+		frame.setSize(500,600);
 		frame.setVisible(true);
 	}
 }

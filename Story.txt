@@ -1,7 +1,7 @@
--:0A:What do you do first?:Check window:1A:check door:1B
+-:0A:What do you do first?:1A:Check window:1B:check door
 -:1A:words:choice1:2A:choice2:2B
--:1B:stuff:choiceChoice1:2C:choiceChoice2:2D
+-:1B:The door creaks open. A desk lamp casts meagar illuminesence across a well decorated room. You find it to be a nice reminder that some people are able to afford nice decor. There are several paintings hung about the room.:2C:Investigate the desk:2D:Investigate the paintings
 -:2A:Oh noes! Stuff happened.:quest1:3A:quest2:3B
 -:2B:oh herro there.:orangejuice1:3C:orangejuice2:3D
--:2C:blah blah blah:answer1:3E:answer2:3F
+-:2C:There is a small brittle note lying on the desk. You begin reading the note to yourself, "To whomever finds this note, I must ask that great care be taken. There are many paths to take, while one will offer salvation the other begets a shapeless, boundless, deep. A place of loss immeasurable, void of light and presence. Great care must be taken.":Take some great care:3E:answer2:3F
 -:2D:how much wood could a wood chuck?:problem1:3G:problem2:3H
