@@ -21,7 +21,9 @@ public class TwoButtonScreen {
 	static StoryStruct storyTree = new StoryStruct();
 
 	private static JFrame frame;
-	private static JPanel panel;
+	private static JPanel panel1;
+	private static JPanel panel2;
+	private static JPanel panel3;
 	private static JTextArea label;
 	private static JButton button1;
 	private static JButton button2;
@@ -31,18 +33,25 @@ public class TwoButtonScreen {
 	
 		//Set up GUI framework. 
 		frame = new JFrame();
-		panel = new JPanel();
+		frame.setLayout(new GridLayout(3, 1));
+		
+		panel1 = new JPanel(new FlowLayout());
+		panel2 = new JPanel(new FlowLayout());
+		panel3 = new JPanel(new FlowLayout());
 		label = new JTextArea(10,20);
 		button1 = new JButton();
 		button2 = new JButton();
-		//panel.setLayout(new GridLayout(3, 1));
-		panel.setLayout(new FlowLayout());
+		
 		
 		//Add our stuff to our frame.
-		frame.add(panel);
-		panel.add(label);
-		panel.add(button1);
-		panel.add(button2);
+		panel1.add(label);
+		panel2.add(button1);
+		panel3.add(button2);
+		
+		frame.add(label);
+		frame.add(panel2);
+		frame.add(panel3);
+		
 
 		//Read file and get our story structure tree.
 		try {
