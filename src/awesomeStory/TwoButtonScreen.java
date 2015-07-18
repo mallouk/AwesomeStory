@@ -15,12 +15,8 @@ import javax.swing.JPanel;
 
 
 public class TwoButtonScreen {
-
 	static TreeObject storyStruct = new TreeObject();
-	
 	static StoryStruct storyTree = new StoryStruct();
-//	static StoryStruct.Story story = storyTree.new Story();
-//	static StoryStruct.Choice choice = storyTree.new Choice();
 
 	private static JFrame frame;
 	private static JPanel panel;
@@ -30,6 +26,8 @@ public class TwoButtonScreen {
 	private static int currIndex = 0;
 	
 	public static void main(String[] args){
+	
+		//GUI 
 		frame = new JFrame();
 		panel = new JPanel();
 		label = new JLabel("blahBlah");
@@ -58,17 +56,18 @@ public class TwoButtonScreen {
 		}
 
 
-		final StoryStruct f = (StoryStruct) storyStruct.get(currIndex);
-		label.setText(f.getStory());
-		button1.setText(f.getChoiceText1());
-		button2.setText(f.getChoiceText2());
+		StoryStruct initStory = (StoryStruct) storyStruct.get(currIndex);
+		label.setText(initStory.getStory());
+		button1.setText(initStory.getChoiceText1());
+		button2.setText(initStory.getChoiceText2());
 
 		button1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("clicked it!");
+				StoryStruct nextStory = (StoryStruct) storyStruct.get(currIndex);
 				for (int i = currIndex; i < storyStruct.size(); i++){
 					StoryStruct q = (StoryStruct)storyStruct.get(i);
-					if (f.getPointerChoice1().equals(q.getStoryPointer())){
+					if (nextStory.getPointerChoice1().equals(q.getStoryPointer())){
 						currIndex = i;
 						label.setText(q.getStory());
 						button1.setText(q.getChoiceText1());
@@ -81,9 +80,10 @@ public class TwoButtonScreen {
 		
 		button2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
+				StoryStruct nextStory = (StoryStruct) storyStruct.get(currIndex);
 				for (int i = currIndex; i < storyStruct.size(); i++){
 					StoryStruct q = (StoryStruct)storyStruct.get(i);
-					if (f.getPointerChoice2().equals(q.getStoryPointer())){
+					if (nextStory.getPointerChoice2().equals(q.getStoryPointer())){
 						currIndex = i;
 						label.setText(q.getStory());
 						button1.setText(q.getChoiceText1());
