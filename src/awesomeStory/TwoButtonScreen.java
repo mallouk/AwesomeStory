@@ -1,6 +1,7 @@
 package awesomeStory;
 
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -27,19 +28,21 @@ public class TwoButtonScreen {
 	
 	public static void main(String[] args){
 	
-		//GUI 
+		//Set up GUI framework. 
 		frame = new JFrame();
 		panel = new JPanel();
-		label = new JLabel("blahBlah");
+		label = new JLabel();
 		button1 = new JButton();
 		button2 = new JButton();
-		panel.setLayout(new FlowLayout());
+		panel.setLayout(new GridLayout(3, 1));
 
+		//Add our stuff to our frame.
 		frame.add(panel);
 		panel.add(label);
 		panel.add(button1);
 		panel.add(button2);
 
+		//Read file and get our story structure tree.
 		try {
 			File f = new File("Story.txt");
 			BufferedReader bufferedReader= new BufferedReader(new FileReader(f));
@@ -55,12 +58,13 @@ public class TwoButtonScreen {
 			e1.printStackTrace();
 		}
 
-
+		//Set initial story point.
 		StoryStruct initStory = (StoryStruct) storyStruct.get(currIndex);
 		label.setText(initStory.getStory());
 		button1.setText(initStory.getChoiceText1());
 		button2.setText(initStory.getChoiceText2());
 
+		//Change story struct based upon the first button click.
 		button1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("clicked it!");
@@ -78,6 +82,7 @@ public class TwoButtonScreen {
 			}
 		});
 		
+		//Change story struct based upon the second button click.
 		button2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				StoryStruct nextStory = (StoryStruct) storyStruct.get(currIndex);
