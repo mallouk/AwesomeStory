@@ -2,7 +2,7 @@ package awesomeStory;
 
 public class StoryStruct {
 	
-	private String choicePointer;
+	private String storyPointer;
 	private String story;
 	private String choiceText1;
 	private String pointerChoice1;
@@ -11,7 +11,7 @@ public class StoryStruct {
 	
 	public void parseLine(String record){
 		String[] parsedData = record.split(":");
-		choicePointer = parsedData[1];
+		storyPointer = parsedData[1];
 		story = parsedData[2];
 		
 		choiceText1 = parsedData[3];
@@ -22,8 +22,8 @@ public class StoryStruct {
 		
 	}
 	
-	public String getChoicePointer(){
-		return choicePointer;
+	public String getStoryPointer(){
+		return storyPointer;
 	}
 	
 	public String getStory(){
